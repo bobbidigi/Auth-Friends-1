@@ -5,6 +5,7 @@ import ProtectedRoute from './utils/ProtectedRoute'
 import Signin from './components/Signin'
 import Account from './components/Account'
 import './App.css';
+import Add from './components/Add'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
 
       <Route exact path='/signin' component={Signin}/>
       <ProtectedRoute exact path='/account' component={Account}/>
+      <ProtectedRoute exact path='/add' component={Add}/>
     </div>
   );
 }
