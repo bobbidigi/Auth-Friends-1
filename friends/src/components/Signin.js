@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import api from '../utils/Api.js'
 
 function Signin(props) {
+    const [isLoading, setIsLoading] = useState(false)
 
 	const [error, setError] = useState()
 	const [data, setData] = useState({
@@ -18,11 +19,13 @@ function Signin(props) {
     
     const handleSubmit = (event) => {
         event.preventDefault()
+        setIsLoading(true)
         api()
             .post("/api/login", data)
 			.then(result => {
 				console.log(result)
                 localStorage.setItem("token", result.data.payload)
+                setIsLoading(false)
                 props.history.push('/')
 			})
 			.catch(err => {
@@ -34,7 +37,7 @@ function Signin(props) {
 	return (
 		<form onSubmit={handleSubmit}>
 			{error && <div className="error">{error}</div>}
-​
+​           {isLoading && <div className="loading">....LOADING</div>}
 			<input type="username" name="username" placeholder="Username" value={data.username} onChange={handleChange} />
 			<input type="password" name="password" placeholder="Password" value={data.password} onChange={handleChange} />
 ​

@@ -7,7 +7,7 @@ Topics:
 * `axios` package
 * AJAX
 * Promises
-* Authentication tokens
+* Authentication tokensQ
 
 ## Project Description
 
