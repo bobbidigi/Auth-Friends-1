@@ -26,14 +26,14 @@ function Signin(props) {
 				console.log(result)
                 localStorage.setItem("token", result.data.payload)
                 setIsLoading(false)
-                props.history.push('/')
+                props.history.push('/account')
 			})
 			.catch(err => {
 				console.log(err)
 				setError(err)
 			})
     }
-    	
+    
 	return (
 		<form onSubmit={handleSubmit}>
 			{error && <div className="error">{error}</div>}

@@ -3,6 +3,7 @@ import {Link, Route} from 'react-router-dom'
 import {getToken} from './utils/Api'
 import ProtectedRoute from './utils/ProtectedRoute'
 import Signin from './components/Signin'
+import Account from './components/Account'
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 			</nav>
 
       <Route exact path='/signin' component={Signin}/>
+      <ProtectedRoute exact path='/account' component={Account}/>
     </div>
   );
 }
